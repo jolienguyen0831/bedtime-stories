@@ -10,6 +10,7 @@ public class BedtimeStoriesApp {
     public static void main(String[] args) {
         System.out.print("Please enter the filename what you want to read: ");
         String userInputFileName = input.nextLine();
+        int counter = 1;
 
         try {
             FileReader fileReader = new FileReader(userInputFileName);
@@ -18,8 +19,9 @@ public class BedtimeStoriesApp {
             String line = bufferedReader.readLine();
 
             while(line!= null){
-                System.out.println(line);
+                System.out.printf("%d. %s%n",counter,line);
                 line = bufferedReader.readLine();
+                counter ++;
             }
             bufferedReader.close();
         } catch (IOException e) {
