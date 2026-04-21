@@ -8,11 +8,23 @@ import java.util.Scanner;
 public class BedtimeStoriesApp {
     private static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.print("Please enter the filename what you want to read: ");
-        String userInputFileName = input.nextLine();
+        System.out.print("""
+                1. Goldilocks
+                2. Hansel_and_gretel
+                3. Mary_had_a_little_lamb
+                Please enter the filename what you want to read:""");
+        int userChoice = input.nextInt();
+        input.nextLine();
+        String userInputFileName = "";
         int counter = 1;
+        switch (userChoice){
+            case 1 -> userInputFileName = "goldilocks.txt";
+            case 2 -> userInputFileName = "hansel_and_gretel.txt";
+            case 3 -> userInputFileName = "mary_had_a_little_lamb.txt";
+        }
 
         try {
+
             FileReader fileReader = new FileReader(userInputFileName);
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
